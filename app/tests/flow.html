@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <title>流程测试</title>
+  <link rel="stylesheet" href="/css/base.css">
+  <link rel="stylesheet" href="/css/layout.css">
+  <link rel="stylesheet" href="/css/components.css">
+  <style>
+    body { padding: 20px; }
+    #summary { font-size: 18px; margin-bottom: 12px; }
+    .pass { color: #1a9c62; } .fail { color: #e5484d; font-weight: bold; }
+    ol { font-size: 13px; line-height: 1.8; }
+  </style>
+</head>
+<body>
+  <div id="summary">running…</div>
+  <ol id="results"></ol>
+  <div id="host"></div>
+  <div id="modalRoot"></div>
+  <div id="toastRoot" class="toast-root"></div>
+  <script type="module" src="/tests/flow.js"></script>
+</body>
+</html>
