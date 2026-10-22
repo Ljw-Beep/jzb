@@ -1,0 +1,510 @@
+{
+  "version": 1,
+  "accounts": [
+    {
+      "id": "a1",
+      "name": "现金",
+      "icon": "💵",
+      "color": "#2f80ed",
+      "initialBalance": 0,
+      "archived": false,
+      "order": 1
+    },
+    {
+      "id": "a2",
+      "name": "微信",
+      "icon": "💬",
+      "color": "#07c160",
+      "initialBalance": 0,
+      "archived": false,
+      "order": 2
+    },
+    {
+      "id": "a3",
+      "name": "支付宝",
+      "icon": "🔵",
+      "color": "#1677ff",
+      "initialBalance": 0,
+      "archived": false,
+      "order": 3
+    },
+    {
+      "id": "a4",
+      "name": "银行卡",
+      "icon": "💳",
+      "color": "#7b61ff",
+      "initialBalance": 0,
+      "archived": false,
+      "order": 4
+    }
+  ],
+  "categories": [
+    {
+      "id": "c1",
+      "name": "餐饮",
+      "parentId": null,
+      "kind": "expense",
+      "icon": "🍜",
+      "color": "#e67e22",
+      "archived": false,
+      "order": 1
+    },
+    {
+      "id": "c1-1",
+      "name": "早饭",
+      "parentId": "c1",
+      "kind": "expense",
+      "icon": "",
+      "color": "",
+      "archived": false,
+      "order": 2
+    },
+    {
+      "id": "c1-2",
+      "name": "午饭",
+      "parentId": "c1",
+      "kind": "expense",
+      "icon": "",
+      "color": "",
+      "archived": false,
+      "order": 3
+    },
+    {
+      "id": "c1-3",
+      "name": "晚饭",
+      "parentId": "c1",
+      "kind": "expense",
+      "icon": "",
+      "color": "",
+      "archived": false,
+      "order": 4
+    },
+    {
+      "id": "c1-4",
+      "name": "外卖",
+      "parentId": "c1",
+      "kind": "expense",
+      "icon": "",
+      "color": "",
+      "archived": false,
+      "order": 5
+    },
+    {
+      "id": "c1-5",
+      "name": "聚餐",
+      "parentId": "c1",
+      "kind": "expense",
+      "icon": "",
+      "color": "",
+      "archived": false,
+      "order": 6
+    },
+    {
+      "id": "c2",
+      "name": "交通",
+      "parentId": null,
+      "kind": "expense",
+      "icon": "🚇",
+      "color": "#3498db",
+      "archived": false,
+      "order": 7
+    },
+    {
+      "id": "c2-1",
+      "name": "地铁",
+      "parentId": "c2",
+      "kind": "expense",
+      "icon": "",
+      "color": "",
+      "archived": false,
+      "order": 8
+    },
+    {
+      "id": "c2-2",
+      "name": "公交",
+      "parentId": "c2",
+      "kind": "expense",
+      "icon": "",
+      "color": "",
+      "archived": false,
+      "order": 9
+    },
+    {
+      "id": "c2-3",
+      "name": "打车",
+      "parentId": "c2",
+      "kind": "expense",
+      "icon": "",
+      "color": "",
+      "archived": false,
+      "order": 10
+    },
+    {
+      "id": "c2-4",
+      "name": "加油",
+      "parentId": "c2",
+      "kind": "expense",
+      "icon": "",
+      "color": "",
+      "archived": false,
+      "order": 11
+    },
+    {
+      "id": "c3",
+      "name": "购物",
+      "parentId": null,
+      "kind": "expense",
+      "icon": "🛍",
+      "color": "#9b59b6",
+      "archived": false,
+      "order": 12
+    },
+    {
+      "id": "c3-1",
+      "name": "日用品",
+      "parentId": "c3",
+      "kind": "expense",
+      "icon": "",
+      "color": "",
+      "archived": false,
+      "order": 13
+    },
+    {
+      "id": "c3-2",
+      "name": "服饰",
+      "parentId": "c3",
+      "kind": "expense",
+      "icon": "",
+      "color": "",
+      "archived": false,
+      "order": 14
+    },
+    {
+      "id": "c3-3",
+      "name": "数码",
+      "parentId": "c3",
+      "kind": "expense",
+      "icon": "",
+      "color": "",
+      "archived": false,
+      "order": 15
+    },
+    {
+      "id": "c4",
+      "name": "居住",
+      "parentId": null,
+      "kind": "expense",
+      "icon": "🏠",
+      "color": "#16a085",
+      "archived": false,
+      "order": 16
+    },
+    {
+      "id": "c4-1",
+      "name": "房租",
+      "parentId": "c4",
+      "kind": "expense",
+      "icon": "",
+      "color": "",
+      "archived": false,
+      "order": 17
+    },
+    {
+      "id": "c4-2",
+      "name": "水电",
+      "parentId": "c4",
+      "kind": "expense",
+      "icon": "",
+      "color": "",
+      "archived": false,
+      "order": 18
+    },
+    {
+      "id": "c4-3",
+      "name": "物业",
+      "parentId": "c4",
+      "kind": "expense",
+      "icon": "",
+      "color": "",
+      "archived": false,
+      "order": 19
+    },
+    {
+      "id": "c5",
+      "name": "娱乐",
+      "parentId": null,
+      "kind": "expense",
+      "icon": "🎬",
+      "color": "#e84393",
+      "archived": false,
+      "order": 20
+    },
+    {
+      "id": "c5-1",
+      "name": "电影",
+      "parentId": "c5",
+      "kind": "expense",
+      "icon": "",
+      "color": "",
+      "archived": false,
+      "order": 21
+    },
+    {
+      "id": "c5-2",
+      "name": "游戏",
+      "parentId": "c5",
+      "kind": "expense",
+      "icon": "",
+      "color": "",
+      "archived": false,
+      "order": 22
+    },
+    {
+      "id": "c5-3",
+      "name": "旅行",
+      "parentId": "c5",
+      "kind": "expense",
+      "icon": "",
+      "color": "",
+      "archived": false,
+      "order": 23
+    },
+    {
+      "id": "c6",
+      "name": "医疗",
+      "parentId": null,
+      "kind": "expense",
+      "icon": "💊",
+      "color": "#e17055",
+      "archived": false,
+      "order": 24
+    },
+    {
+      "id": "c6-1",
+      "name": "药品",
+      "parentId": "c6",
+      "kind": "expense",
+      "icon": "",
+      "color": "",
+      "archived": false,
+      "order": 25
+    },
+    {
+      "id": "c6-2",
+      "name": "门诊",
+      "parentId": "c6",
+      "kind": "expense",
+      "icon": "",
+      "color": "",
+      "archived": false,
+      "order": 26
+    },
+    {
+      "id": "c7",
+      "name": "学习",
+      "parentId": null,
+      "kind": "expense",
+      "icon": "📚",
+      "color": "#2980b9",
+      "archived": false,
+      "order": 27
+    },
+    {
+      "id": "c7-1",
+      "name": "书籍",
+      "parentId": "c7",
+      "kind": "expense",
+      "icon": "",
+      "color": "",
+      "archived": false,
+      "order": 28
+    },
+    {
+      "id": "c7-2",
+      "name": "课程",
+      "parentId": "c7",
+      "kind": "expense",
+      "icon": "",
+      "color": "",
+      "archived": false,
+      "order": 29
+    },
+    {
+      "id": "c8",
+      "name": "人情",
+      "parentId": null,
+      "kind": "expense",
+      "icon": "🎁",
+      "color": "#d35400",
+      "archived": false,
+      "order": 30
+    },
+    {
+      "id": "c8-1",
+      "name": "红包",
+      "parentId": "c8",
+      "kind": "expense",
+      "icon": "",
+      "color": "",
+      "archived": false,
+      "order": 31
+    },
+    {
+      "id": "c8-2",
+      "name": "礼物",
+      "parentId": "c8",
+      "kind": "expense",
+      "icon": "",
+      "color": "",
+      "archived": false,
+      "order": 32
+    },
+    {
+      "id": "c9",
+      "name": "其他",
+      "parentId": null,
+      "kind": "expense",
+      "icon": "📦",
+      "color": "#7f8c8d",
+      "archived": false,
+      "order": 33
+    },
+    {
+      "id": "c10",
+      "name": "工资",
+      "parentId": null,
+      "kind": "income",
+      "icon": "💰",
+      "color": "#1a9c62",
+      "archived": false,
+      "order": 34
+    },
+    {
+      "id": "c11",
+      "name": "奖金",
+      "parentId": null,
+      "kind": "income",
+      "icon": "🏆",
+      "color": "#f1c40f",
+      "archived": false,
+      "order": 35
+    },
+    {
+      "id": "c12",
+      "name": "理财",
+      "parentId": null,
+      "kind": "income",
+      "icon": "📈",
+      "color": "#27ae60",
+      "archived": false,
+      "order": 36
+    },
+    {
+      "id": "c13",
+      "name": "红包",
+      "parentId": null,
+      "kind": "income",
+      "icon": "🧧",
+      "color": "#e74c3c",
+      "archived": false,
+      "order": 37
+    },
+    {
+      "id": "c14",
+      "name": "其他",
+      "parentId": null,
+      "kind": "income",
+      "icon": "📦",
+      "color": "#95a5a6",
+      "archived": false,
+      "order": 38
+    }
+  ],
+  "tags": [],
+  "transactions": [
+    {
+      "id": "tx-mvhyn8hx-nv4nv",
+      "kind": "expense",
+      "amount": 1350,
+      "accountId": "a2",
+      "toAccountId": null,
+      "categoryId": "c1-3",
+      "date": "2026-10-21",
+      "note": "",
+      "tagIds": [],
+      "createdAt": "2026-10-21T10:19:38.565Z",
+      "updatedAt": "2026-10-21T10:19:38.565Z"
+    },
+    {
+      "id": "tx-mvhynno9-rrr0b",
+      "kind": "expense",
+      "amount": 290,
+      "accountId": "a2",
+      "toAccountId": null,
+      "categoryId": "c1-4",
+      "date": "2026-10-21",
+      "note": "奶茶",
+      "tagIds": [],
+      "createdAt": "2026-10-21T10:19:58.233Z",
+      "updatedAt": "2026-10-21T10:19:58.233Z"
+    },
+    {
+      "id": "tx-mvhyp2xb-gaz3r",
+      "kind": "expense",
+      "amount": 1200,
+      "accountId": "a1",
+      "toAccountId": null,
+      "categoryId": "c1-4",
+      "date": "2026-10-21",
+      "note": "水果",
+      "tagIds": [],
+      "createdAt": "2026-10-21T10:21:04.655Z",
+      "updatedAt": "2026-10-21T10:21:04.655Z"
+    },
+    {
+      "id": "tx-mvhypn7n-eh807",
+      "kind": "expense",
+      "amount": 500,
+      "accountId": "a1",
+      "toAccountId": null,
+      "categoryId": "c3-1",
+      "date": "2026-10-21",
+      "note": "饮料",
+      "tagIds": [],
+      "createdAt": "2026-10-21T10:21:30.947Z",
+      "updatedAt": "2026-10-21T10:21:30.947Z"
+    },
+    {
+      "id": "tx-mvhypun6-v1h7q",
+      "kind": "expense",
+      "amount": 950,
+      "accountId": "a1",
+      "toAccountId": null,
+      "categoryId": "c1-2",
+      "date": "2026-10-21",
+      "note": "",
+      "tagIds": [],
+      "createdAt": "2026-10-21T10:21:40.578Z",
+      "updatedAt": "2026-10-21T10:21:40.578Z"
+    },
+    {
+      "id": "tx-mvhyq077-ady37",
+      "kind": "expense",
+      "amount": 350,
+      "accountId": "a1",
+      "toAccountId": null,
+      "categoryId": "c1-1",
+      "date": "2026-10-21",
+      "note": "",
+      "tagIds": [],
+      "createdAt": "2026-10-21T10:21:47.779Z",
+      "updatedAt": "2026-10-21T10:21:47.779Z"
+    }
+  ],
+  "budgets": [],
+  "settings": {
+    "defaultAccountId": "a1",
+    "monthStartDay": 1,
+    "overspendAlert": true
+  }
+}

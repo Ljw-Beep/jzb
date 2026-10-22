@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <title>性能测试</title>
+  <link rel="stylesheet" href="/css/base.css">
+  <link rel="stylesheet" href="/css/layout.css">
+  <link rel="stylesheet" href="/css/components.css">
+  <style>#summary { position: fixed; left: 12px; bottom: 12px; z-index: 2000; background: #fff; padding: 8px 12px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,.15); font-size: 13px; }</style>
+</head>
+<body>
+  <h1 style="font-size:16px;padding:12px 16px">性能测试</h1>
+  <div id="host"></div>
+  <div id="modalRoot"></div>
+  <div id="toastRoot" class="toast-root"></div>
+  <div id="summary">running…</div>
+
+  <script type="module">
+    import { store } from '/js/store.js';
+    import { mount } from '/js/pages/bills.js';
+    import { filterTx } from '/js/selectors.js';
+    import { monthKey } from '/js/utils.js';
+
+    // 同步取数据，保证 load 事件之前完成全部测量
+    const xhr = new XMLHttpRequest();
+    xhr.open('GET', '/api/state', false);
+    xhr.send();
+    const payload = JSON.parse(xhr.responseText);
+    store.state = payload.data;
+    store.rev = payload.rev;
+
+    const host = document.getElementById('host');
+    const t0 = performance.now();
+    mount(host, { month: monthKey(), params: {}, goto() {}, openQuickAdd() {} });
+    const t1 = performance.now();
+
+    const rows = host.querySelectorAll('.bill-row').length;
+    const total = store.state.transactions.length;
+
+    const t2 = performance.now();
+    let last = null;
+    for (let i = 0; i < 20; i++) {
+      last = filterTx(store.state, { month: monthKey(), categoryIds: [], tagIds: [], accountId: 'all', kind: 'all', q: '' });
+    }
+    const t3 = performance.now();
+    const filterMs = (t3 - t2) / 20;
+
+    const summary = 'PERF mount=' + (t1 - t0).toFixed(1) + 'ms filter=' + filterMs.toFixed(2) + 'ms rows=' + rows + ' total=' + total + ' matched=' + last.length;
+    document.getElementById('summary').textContent = summary;
+    document.title = summary;
+  </script>
+</body>
+</html>

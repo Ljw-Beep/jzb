@@ -1,0 +1,112 @@
+:root {
+  /* 品牌与强调色：天空蓝 / 日落橙 */
+  --primary: #2f80ed;
+  --primary-dark: #1f66c9;
+  --primary-soft: rgba(47, 128, 237, .12);
+
+  --sky: #3fb6ff;
+  --sky-deep: #0a74c9;
+  --sunset: #ff7a45;
+  --sunset-soft: rgba(255, 122, 69, .14);
+
+  --expense: #d4531f;
+  --expense-soft: rgba(255, 122, 69, .16);
+  --income: #0a74c9;
+  --income-soft: rgba(63, 182, 255, .16);
+  --warn: #b45309;
+  --warn-soft: rgba(245, 158, 11, .16);
+
+  /* 玻璃与背景 */
+  --glass: rgba(255, 255, 255, .74);
+  --glass-strong: rgba(255, 255, 255, .88);
+  --glass-line: rgba(255, 255, 255, .62);
+  --glass-inner: rgba(15, 23, 42, .045);
+  --page-1: #071226;
+  --page-2: #0e2144;
+  --page-3: #2b2454;
+  --page-4: #4b2f63;
+
+  --card: transparent;
+  --bg: #0b1a33;
+  --text: #0f172a;
+  --text-2: #38445c;
+  --muted: #6b7a93;
+  --border: rgba(15, 23, 42, .10);
+  --border-strong: rgba(15, 23, 42, .18);
+
+  --radius: 24px;
+  --radius-sm: 14px;
+  --shadow: 0 18px 48px rgba(2, 8, 23, .34), 0 2px 6px rgba(2, 8, 23, .18), inset 0 1px 0 rgba(255, 255, 255, .55);
+  --shadow-lg: 0 30px 80px rgba(2, 8, 23, .45), 0 2px 10px rgba(2, 8, 23, .25);
+
+  --sidebar-w: 208px;
+  --font-display: "SF Pro Display", "SF Pro Text", "Segoe UI Variable Display", "Segoe UI", "Microsoft YaHei UI", "PingFang SC", sans-serif;
+  --blur: blur(30px) saturate(160%);
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+}
+
+body {
+  background-color: var(--page-1);
+  background-image:
+    radial-gradient(1100px 640px at 88% -12%, rgba(63, 182, 255, .30), transparent 62%),
+    radial-gradient(900px 700px at 4% 108%, rgba(255, 122, 69, .22), transparent 60%),
+    radial-gradient(760px 520px at 52% 52%, rgba(122, 92, 214, .16), transparent 70%),
+    linear-gradient(158deg, var(--page-1) 0%, var(--page-2) 34%, var(--page-3) 70%, var(--page-4) 100%);
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: var(--text);
+  font-family: var(--font-display);
+  font-size: 14px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* 细颗粒噪点：给玻璃一层"实体感"，不拦截鼠标事件 */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 9998;
+  pointer-events: none;
+  opacity: .045;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/></filter><rect width='180' height='180' filter='url(%23n)' opacity='0.55'/></svg>");
+}
+
+h1, h2, h3, h4, p { margin: 0; }
+
+a { color: var(--sky); text-decoration: none; }
+
+button, input, select, textarea { font-family: inherit; font-size: inherit; color: inherit; }
+
+button { cursor: pointer; }
+
+code {
+  background: rgba(15, 23, 42, .06);
+  padding: 1px 6px;
+  border-radius: 6px;
+  font-size: 12px;
+}
+
+.muted { color: var(--muted); }
+.text-expense { color: var(--expense); }
+.text-income { color: var(--income); }
+.num { font-variant-numeric: tabular-nums; font-feature-settings: "tnum" 1; }
+.hidden { display: none !important; }
+.spacer { flex: 1; }
+.row { display: flex; align-items: center; gap: 8px; }
+.row-between { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+.stack { display: flex; flex-direction: column; gap: 12px; }
+
+/* 关键：作者样式里的 display 会覆盖浏览器对 hidden 属性的默认隐藏，
+   这里统一兜底，保证 el.hidden = true 一定真的不可见 */
+[hidden] { display: none !important; }

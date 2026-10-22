@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <title>离线兜底测试</title>
+  <link rel="stylesheet" href="/css/base.css">
+  <link rel="stylesheet" href="/css/layout.css">
+  <link rel="stylesheet" href="/css/components.css">
+  <style>#summary { position: fixed; left: 12px; bottom: 12px; z-index: 2000; background: #fff; padding: 8px 12px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,.15); }</style>
+</head>
+<body>
+  <div class="app" id="app">
+    <aside class="sidebar">
+      <div class="brand"><span class="brand-icon">💰</span><span class="brand-text">记账本</span></div>
+      <nav class="nav" id="nav">
+        <a class="nav-item" href="#/home" data-route="home"><span class="nav-ico">🏠</span>首页</a>
+        <a class="nav-item" href="#/bills" data-route="bills"><span class="nav-ico">📋</span>账单</a>
+        <a class="nav-item" href="#/stats" data-route="stats"><span class="nav-ico">📊</span>统计</a>
+        <a class="nav-item" href="#/budget" data-route="budget"><span class="nav-ico">🎯</span>预算</a>
+        <a class="nav-item" href="#/categories" data-route="categories"><span class="nav-ico">🏷️</span>分类</a>
+        <a class="nav-item" href="#/settings" data-route="settings"><span class="nav-ico">⚙️</span>设置</a>
+      </nav>
+      <div class="sidebar-foot"><span class="muted">今日</span><strong id="todayBrief">¥0.00</strong></div>
+    </aside>
+    <main class="main">
+      <header class="topbar">
+        <h1 class="page-title" id="pageTitle">首页</h1>
+        <div class="topbar-right">
+          <div class="month-switch" id="monthSwitch" hidden>
+            <button class="icon-btn" id="monthPrev">‹</button>
+            <button class="month-label" id="monthLabel"></button>
+            <button class="icon-btn" id="monthNext">›</button>
+          </div>
+          <button class="btn btn-primary" id="quickAdd">＋ 记一笔</button>
+        </div>
+      </header>
+      <section class="content" id="view"></section>
+    </main>
+  </div>
+
+  <div id="modalRoot"></div>
+  <div id="toastRoot" class="toast-root"></div>
+
+  <div id="offline" class="offline" hidden>
+    <div class="offline-card">
+      <h2>本地服务未连接</h2>
+      <p>请双击项目文件夹里的 <code>启动记账.bat</code>，再点下面的重试。</p>
+      <button class="btn btn-primary" id="retryBtn">重试</button>
+    </div>
+  </div>
+
+  <div id="summary">running…</div>
+
+  <script type="module">
+    const realFetch = window.fetch.bind(window);
+    // 先模拟服务不可用
+    window.fetch = () => Promise.reject(new TypeError('simulated network down'));
+    try {
+      await import('/js/main.js');
+    } catch (e) {
+      document.getElementById('summary').textContent = 'OFFLINE FAIL import :: ' + e.message;
+    }
+    await new Promise((r) => setTimeout(r, 400));
+
+    const offline = document.getElementById('offline');
+    const shown = !offline.hidden;
+    const hasText = offline.textContent.includes('本地服务未连接');
+
+    // 恢复网络后点重试
+    window.fetch = realFetch;
+    document.getElementById('retryBtn').click();
+    await new Promise((r) => setTimeout(r, 800));
+
+    const recovered = offline.hidden && document.querySelector('[data-page="home"]');
+
+    const okAll = shown && hasText && !!recovered;
+    document.title = okAll ? 'OFFLINE PASS 3 FAIL 0' : ('OFFLINE FAIL shown=' + shown + ' text=' + hasText + ' recovered=' + !!recovered);
+    document.getElementById('summary').textContent = document.title;
+  </script>
+</body>
+</html>
